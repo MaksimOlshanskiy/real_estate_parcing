@@ -82,6 +82,7 @@ while True:
 
     items = response.json()["result"]["apartments"]
 
+
     for i in items:
 
         url = ""
@@ -126,9 +127,12 @@ while True:
         discount = ''
         price_per_metr_new = ''
         price = i["PRICE"]
-        old_price = ''
+        try:
+            old_price = i['OLD_PRICE']
+        except:
+            old_price = ''
 
-        section = i['SECTION']
+        section = int(i['SECTION'])
         floor = i["FLOOR"]
         flat_number = ''
 
